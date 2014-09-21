@@ -112,8 +112,8 @@
       <drop_target control_name="EmergencyTeleportLandmark" bottom_delta="-8" left="15" height="17" name="emergency_teleport_landmark_drop" width="430"/>
       <text name="EmergencyTeleportBackupDesc" halign="center" width="432" left="14" bottom_delta="-26" follows="top">Drop a backup landmark to autoteleport to below, should you already be at the above</text>
       <drop_target control_name="EmergencyTeleportLandmarkBackup" bottom_delta="-8" left="15" height="17" name="emergency_teleport_landmark_backup_drop" width="430"/>
-      <text bottom_delta="-26" follows="top" name="UISndRestartText">Sound played when regions will restart:</text>
-      <line_editor bottom_delta="-6" left_delta="222" follows="top" width="209" height="16" name="UISndRestart" tool_tip="Empty for no sound to play"/>
+      <check_box left="10" bottom_delta="-36" follows="top" name="SLBEnableUISndRestartCheck" label="Sound played when regions will restart:" control_name="SLBEnableUISndRestart"/>
+      <line_editor left_delta="227" bottom_delta="0" follows="top" width="209" height="16" name="UISndRestart" tool_tip="Empty for no sound to play"/>
     </panel>
 
     <panel border="true" left="1" bottom="-408" height="408" width="500" label="Building" name="Building">

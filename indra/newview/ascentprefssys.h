@@ -114,6 +114,7 @@ private:
 	bool mRestartMinimized;
 	F32 mNumScriptDiff;
 	std::string mRestartSound;
+	bool mEnableRestartSound;
 	std::string mLandmark;
 	std::string mLandmarkBackup;
 

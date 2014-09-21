@@ -1125,6 +1125,17 @@ Found in Advanced->Rendering->Info Displays</string>
       <key>Value</key>
       <integer>1</integer>
     </map>
+    <key>SLBEnableUISndRestart</key>
+    <map>
+      <key>Comment</key>
+      <string>Enable sound played when regions will restart</string>
+      <key>Persist</key>
+      <integer>1</integer>
+      <key>Type</key>
+      <string>Boolean</string>
+      <key>Value</key>
+      <integer>1</integer>
+    </map>
     <key>UseRealisticMouselook</key>
     <map>
       <key>Comment</key>

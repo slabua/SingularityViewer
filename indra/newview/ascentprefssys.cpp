@@ -204,6 +204,7 @@ void LLPrefsAscentSys::refreshValues()
     mNumScriptDiff              = gSavedSettings.getF32("Ascentnumscriptdiff");
 	mRestartMinimized		= gSavedSettings.getBOOL("LiruRegionRestartMinimized");
 	mRestartSound			= gSavedSettings.getString("UISndRestart");
+	mEnableRestartSound			= gSavedSettings.getBOOL("SLBEnableUISndRestart");
 	mLandmark			= gSavedPerAccountSettings.getString("EmergencyTeleportLandmark");
 	mLandmarkBackup			= gSavedPerAccountSettings.getString("EmergencyTeleportLandmarkBackup");
 
@@ -263,6 +264,9 @@ void LLPrefsAscentSys::refresh()
 
 	if (LLComboBox* combo = getChild<LLComboBox>("lookat_namesystem_combobox"))
 		combo->setValue(mLookAtNames);
+
+	if (LLComboBox* combo = getChild<LLComboBox>("SLBEnableUISndRestartCheck"))
+		combo->setValue(mEnableRestartSound);
 
 	//Build -------------------------------------------------------------------------------
 	childSetValue("alpha",               mAlpha);
@@ -346,6 +350,7 @@ void LLPrefsAscentSys::cancel()
     gSavedSettings.setF32("Ascentnumscriptdiff",            mNumScriptDiff);
 	gSavedSettings.setBOOL("LiruRegionRestartMinimized", mRestartMinimized);
 	gSavedSettings.setString("UISndRestart", mRestartSound);
+	gSavedSettings.setBOOL("SLBEnableUISndRestart", mEnableRestartSound);
 	gSavedPerAccountSettings.setString("EmergencyTeleportLandmark",      mLandmark);
 	gSavedPerAccountSettings.setString("EmergencyTeleportLandmarkBackup",      mLandmarkBackup);
 

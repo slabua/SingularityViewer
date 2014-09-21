@@ -6698,7 +6698,8 @@ bool attempt_standard_notification(LLMessageSystem* msgsystem)
 		else if (notificationID == "RegionRestartMinutes" || notificationID == "RegionRestartSeconds")
 		{
 			update_region_restart(llsdBlock);
-			LLUI::sAudioCallback(LLUUID(gSavedSettings.getString("UISndRestart")));
+			if (gSavedSettings.getBOOL("SLBEnableUISndRestart"))
+				LLUI::sAudioCallback(LLUUID(gSavedSettings.getString("UISndRestart")));
 			return true; // Floater is enough.
 		}
 
@@ -6811,7 +6812,8 @@ void process_alert_core(const std::string& message, BOOL modal)
 			args["MINUTES"] = llformat("%d",mins);
 			update_region_restart(args);
 			//LLNotificationsUtil::add("RegionRestartMinutes", args); // Floater is enough.
-			LLUI::sAudioCallback(LLUUID(gSavedSettings.getString("UISndRestart")));
+			if (gSavedSettings.getBOOL("SLBEnableUISndRestart"))
+				LLUI::sAudioCallback(LLUUID(gSavedSettings.getString("UISndRestart")));
 		}
 		else if (text.substr(0,17) == "RESTART_X_SECONDS")
 		{
@@ -6820,7 +6822,8 @@ void process_alert_core(const std::string& message, BOOL modal)
 			args["SECONDS"] = llformat("%d",secs);
 			update_region_restart(args);
 			//LLNotificationsUtil::add("RegionRestartSeconds", args); // Floater is enough.
-			LLUI::sAudioCallback(LLUUID(gSavedSettings.getString("UISndRestart")));
+			if (gSavedSettings.getBOOL("SLBEnableUISndRestart"))
+				LLUI::sAudioCallback(LLUUID(gSavedSettings.getString("UISndRestart")));
 		}
 		else
 		{

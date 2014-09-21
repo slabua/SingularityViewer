@@ -323,6 +323,7 @@ void LLStatusBar::refresh()
 
 	// Singu Note: Use system's time if the user desires, otherwise use server time
 	static const LLCachedControl<bool> show_local_time("LiruLocalTime");
+	static const LLCachedControl<bool> use_long_time_format("SLBShowSeconds");
 
 	// Get current UTC time, adjusted for the user's clock
 	// being off.
@@ -336,7 +337,14 @@ void LLStatusBar::refresh()
 	internal_time = show_local_time ? std::localtime(&utc_time) : utc_to_pacific_time(utc_time, gPacificDaylightTime);
 
 	std::string t;
-	timeStructToFormattedString(internal_time, gSavedSettings.getString("ShortTimeFormat"), t);
+	if (!use_long_time_format)
+	{
+		timeStructToFormattedString(internal_time, gSavedSettings.getString("ShortTimeFormat"), t);
+	}
+	else
+	{
+		timeStructToFormattedString(internal_time, gSavedSettings.getString("LongTimeFormat"), t);
+	}
 	if (show_local_time)
 	{
 		static const std::string local(" " + getString("Local"));
